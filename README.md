@@ -43,6 +43,7 @@ cd lan
 nano docker-compose.txt
 ```
 CHANGE THE PASSWORD
+
 This assumes you're using 192.168.0.6/24 and 192.168.0.7/24 as your static IPs for your pihole and nginx container respectively. If not, just change them to what you want it to be. Watch for collisions!
 
 - We *should* be done according to the docs but we aren't. Now we fix the problems we currently have with the set up: 
