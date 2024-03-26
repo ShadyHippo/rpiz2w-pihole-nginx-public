@@ -29,7 +29,7 @@ great, now DO NOT install docker from apt. Follow these official instructions to
 - Create your Docker Network:
 ``` bash
 # create the lannet network 
-docker network create -d ipvlan --subnet 192.168.0.0/24 --gateway 192.168.0.1 --attachable --opt mode=l2 --opt parent=wlan0 lannet
+sudo docker network create -d ipvlan --subnet 192.168.0.0/24 --gateway 192.168.0.1 --attachable --opt mode=l2 --opt parent=wlan0 lannet
 ```
 - Create your working directory for the pi's docker containers and the lan containers
 ``` bash
