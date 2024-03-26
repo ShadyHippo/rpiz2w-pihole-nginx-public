@@ -22,7 +22,7 @@ sudo apt autoremove
 
 # set static IP (Alternatively you could use the sudo nmtui)
 nmcli con show
-sudo nmcli c mod preconfigured ipv4.addresses 192.168.0.5/24 # You MUST use /24, you can use any ip you want. 
+sudo nmcli c mod preconfigured ipv4.addresses 192.168.0.5/24 # You MUST use /24, you can use any ip you want that doesn't collide AND doesn't include your router (gateway). 
 ```
 great, now DO NOT install docker from apt. Follow these official instructions to get docker-ce (the official package) on the rpi 32 bit OS. https://docs.docker.com/engine/install/raspberry-pi-os/
 - Create your Docker Network:
