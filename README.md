@@ -1,4 +1,5 @@
 # rpiz2w-pihole-nginx-public
+## DISCLAIMER: I wrote this from my memory and (very detailed) notes. I may have missed something, don't YOLO your WiFI on this if you don't know what your doing at all. I'm not responsible ;) 
 ## IPVlan pihole and nginx on ipvlan stable rpi config
 
 This took me forever fighting this and I can't be the only one who wants it so here you go internet... I sincerely hope this helps someone else as well. 
