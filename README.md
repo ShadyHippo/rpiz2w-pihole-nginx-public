@@ -1,6 +1,11 @@
 # rpiz2w-pihole-nginx-public
+## DISCLAIMER: This doesn't seem to work with a ton of devices. More troubleshooting is needed I guess.
+I had it running smoothly for about 12 hours or so before I went to bed. After I went to bed I woke up to it not working and had to disable it. This behavior I thought was due to the WiFi power management but must be due to something I don't understand yet. If you happen to know the answer please open an issue or discussion. 
+
+I don't think it's running out of memory or resources, and the WiFi sleep states are off. I don't really know what else to try. 
+
 ## DISCLAIMER: I wrote this from my memory and (very detailed) notes. I may have missed something, don't YOLO your WiFI on this if you don't know what your doing at all. I'm not responsible ;) 
-## IPVlan pihole and nginx on ipvlan stable rpi config
+## PiHole and nginx on ipvlan stable(Actually not apparently) rpi config
 
 This took me forever fighting this and I can't be the only one who wants it so here you go internet... I sincerely hope this helps someone else as well. 
 
@@ -10,7 +15,7 @@ Steps:
 - Obtiain an SD card, USB Power cord, decent AC adapter (I haven't tested this running from my router yet. I've heard some people say it worked but I'm not brave enough to test that now that I finally got something stable
 - Put Raspian *32 bit* *lite* bookworm on the SD Card using your imager of choice. 
 
-This version is important because it's the most current AND it gets us around forever swapping. The .5 GB RAM is plenty for something like these two containers on the 32 bit build but it's not enough with 64 bit. 
+This version is important because it's the most current AND it gets us around forever swapping. The .5 GB RAM is plenty for something like these two containers on the 32 bit OS but it's not enough with 64 bit (I did test it). 
 
 I'm on Ubuntu so I used the official RPI Imager but had to pull their release from their repo because apt was so far out of date I had bugs to deal with there. Here's their official release https://github.com/raspberrypi/rpi-imager/releases
 - Let the pi boot and let it go slow, first boot needs to set up some stuff and this is a zero after all. 
@@ -25,7 +30,7 @@ sudo apt autoremove
 nmcli con show
 sudo nmcli c mod preconfigured ipv4.addresses 192.168.0.5/24 # You MUST use /24, you can use any ip you want that doesn't collide AND doesn't include your router (gateway). 
 ```
-great, now DO NOT install docker from apt. Follow these official instructions to get docker-ce (the official package) on the rpi 32 bit OS. https://docs.docker.com/engine/install/raspberry-pi-os/
+great, now DO NOT install docker from apt (yet). Follow these official instructions to get docker-ce (the official package) on the rpi 32 bit OS. https://docs.docker.com/engine/install/raspberry-pi-os/
 - Create your Docker Network:
 ``` bash
 # create the lannet network 
@@ -59,6 +64,7 @@ sudo nano /etc/rc.local
 add 
 ``` bash
 # Set no WiFi sleepstates/power management (which I thought was fixed but isn't or something, it works now I don't care definitely leave this in here)
+# Update from 03/27/24. It works better than it did but did die overnight and I have no clue why. I had to go back to my old pihole setup on a different machine. 
 /sbin/iwconfig wlan0 power off
 
 # Set arp registry of ipvlan and promisc on(which we shouldn't need to do but we do). See https://github.com/moby/moby/issues/43270
