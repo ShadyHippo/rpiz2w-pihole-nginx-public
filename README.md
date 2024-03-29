@@ -30,6 +30,11 @@ sudo apt autoremove
 nmcli con show
 sudo nmcli c mod preconfigured ipv4.addresses 192.168.0.5/24 # You MUST use /24, you can use any ip you want that doesn't collide AND doesn't include your router (gateway). 
 ```
+Now set up some dns entries for this machine because if pihole goes down at least the machine can still access the internet and upgrade your containers and still hit apt. Just feels like a good idea. I used open dns found here: https://use.opendns.com/
+And also put in a 3rd registry as 127.0.0.1 (but I just removed that today to see if that somehow magically fixes my problems.)
+```
+sudo nmtui
+```
 great, now DO NOT install docker from apt (yet). Follow these official instructions to get docker-ce (the official package) on the rpi 32 bit OS. https://docs.docker.com/engine/install/raspberry-pi-os/
 - Create your Docker Network:
 ``` bash
