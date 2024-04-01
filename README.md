@@ -79,21 +79,8 @@ sudo arp -s 192.168.0.7 [your_wlan0_mac_addr] pub
 sudo ip link set wlan0 promisc on
 ```
 
-# IMPORTANT: EXPERIMENTAL FIRMWARE MAY HAVE FIXED MY ISSUE
-I was having an issue that after about a day the device failed to connect and a reboot didn't fix it for more than 5 minutes. ultimate what appears to have fixed it is running 
-
-__THIS IS NOT RECOMMENDED__
-*YOUR DEVICE MAY NOT BOOT AFTER THIS*
-__I DO NOT TAKE ANY RESPONSIBLILITY FOR YOUR RPI. Don't do this if you need this and aren't just tinkering for fun__
-``` bash
-# Update to *EXPERIMENTAL* firmware
-sudo rpi-update
-```
-
-now reboot your pi
-``` bash
-sudo reboot now
-```
+# IMPORTANT: EXPERIMENTAL FIRMWARE DID NOT FIX MY ISSUE MY ISSUE
+I was having an issue that after about a day the device failed to connect and a reboot didn't fix it for more than 5 minutes.
 
 - Great! restart the pi and you should have those commands in `/etc/rc.local` running on boot now
 We're almost there!
