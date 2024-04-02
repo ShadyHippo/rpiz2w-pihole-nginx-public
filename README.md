@@ -50,7 +50,7 @@ cd lan
 ```
 - Copy docker compose to this new directory
 ``` bash
-nano docker-compose.txt
+nano docker-compose.yml
 ```
 CHANGE THE PASSWORD
 
