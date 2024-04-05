@@ -7,7 +7,7 @@
 ### Required equipment: 
 - Raspberry pi zero 2 w ( If stock gets hard to find look here: https://rpilocator.com/?cat=PIZERO2 )
 - USB Power cord compatible with the pi
-- SD Card (I'm using 16 GB cheapo from Amazon. Use F3 to test what you got. I have a script here: ( https://raw.githubusercontent.com/ShadyHippo/my_scripts/master/flash-test ) to help with that if needed. It will delete data on the SD card, but gets you the true size, read speed, and write speed of the card. 
+- SD Card (I'm using 16 GB cheapo from Amazon. Use F3 to test what you got. I have a script here: https://raw.githubusercontent.com/ShadyHippo/my_scripts/master/flash-test to help with that if needed. It will delete data on the SD card, but gets you the true size, read speed, and write speed of the card.)
 - Optional: A good power supply (I'm currently using the USB port on my router but your mileage on that may vary)
 
 
@@ -123,7 +123,7 @@ let this run for a while especially the first time. This poor machine has .5 GB 
 Once that completes you now have your very own pihole and nginx servers all on the same machine (for under $30 all in as of when I'm writing this)
 
 #### Using the containers
-Navigate to http://pi.hole/ or http://192.168.0.5/admin/ to see your pihole and `http://192.168.0.6:81/` for your nginx admin console. 
+Navigate to http://pi.hole/ or http://192.168.0.5/admin/ to see your pihole and http://192.168.0.6:81/ for your nginx admin console. 
 See here for setting up nginx: https://nginxproxymanager.com/setup/#default-administrator-user
 
 
