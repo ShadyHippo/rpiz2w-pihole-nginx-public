@@ -1,41 +1,37 @@
-version: "3"
 services:
     pihole:
         container_name: pihole
-        networks:
-            lannet:
-                ipv4_address: 192.168.0.6
+        image: pihole/pihole:latest
+        network_mode: host
         environment:
             - TZ=America/Detroit
-            - VIRTUAL_HOST=pi.hole
-            - PROXY_LOCATION=pi.hole
-            - FTLCONF_LOCAL_IPV4=127.0.0.1
             - WEBPASSWORD=CHANGE_THIS_VALUE
+            - INTERFACE=wlan0
+            - FTLCONF_LOCAL_IPV4=192.168.0.5
+            - DHCP_IPv6=false
         volumes:
             - ./etc-pihole:/etc/pihole
             - ./etc-dnsmasq.d:/etc/dnsmasq.d
         dns:
-            - 127.0.0.1
             - 208.67.222.222
             - 208.67.220.220
         restart: unless-stopped
         hostname: pi.hole
-        image: pihole/pihole:latest
         cap_add:
             - NET_ADMIN
     nginxproxymanager:
         container_name: npm
         networks:
             lannet:
-                ipv4_address: 192.168.0.7
+                ipv4_address: 192.168.0.6
         volumes:
             - ./data:/data
             - ./letsencrypt:/etc/letsencrypt
         restart: unless-stopped
         image: jc21/nginx-proxy-manager:latest
+
 networks:
     lannet:
         external: true
         name: lannet
-
 
